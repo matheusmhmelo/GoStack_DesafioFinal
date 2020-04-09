@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { TouchableOpacity, Alert, StatusBar } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RNCamera } from 'react-native-camera';
@@ -15,9 +15,15 @@ export default function Confirm({ navigation }) {
   const delivery_id = navigation.getParam('delivery_id');
   const profile = useSelector((state) => state.user.profile);
 
+  const [active, setActive] = useState(true);
+  const [loading, setLoading] = useState(false);
+
   const imageRef = useRef();
 
   async function takePicture() {
+    setActive(false);
+    setLoading(true);
+
     const camera = imageRef.current;
     if (camera) {
       const options = { quality: 0.5, base64: true };
@@ -48,6 +54,9 @@ export default function Confirm({ navigation }) {
         }
       }
     }
+
+    setActive(true);
+    setLoading(false);
   }
 
   return (
@@ -64,7 +73,9 @@ export default function Confirm({ navigation }) {
           />
         </CameraView>
 
-        <CameraButton onPress={takePicture}>Enviar</CameraButton>
+        <CameraButton enabled={active} loading={loading} onPress={takePicture}>
+          Enviar
+        </CameraButton>
       </Container>
     </DeliveryBackground>
   );

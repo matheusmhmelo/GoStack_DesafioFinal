@@ -43,7 +43,10 @@ export default function Profile() {
     <Container>
       <AvatarView>
         {profile.avatar ? (
-          <AvatarIcon size={180} source={{ uri: profile_image }} />
+          <AvatarIcon
+            size={180}
+            source={{ uri: profile_image, cache: 'default' }}
+          />
         ) : (
           <AvatarIcon size={180} icon={{ name: 'person', color: '#A28FD0' }} />
         )}

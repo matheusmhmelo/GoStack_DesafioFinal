@@ -66,7 +66,10 @@ function Dashboard({ navigation, isFocused }) {
 
       <HeaderContent>
         {profile.avatar ? (
-          <AvatarIcon size={70} source={{ uri: profile_image }} />
+          <AvatarIcon
+            size={70}
+            source={{ uri: profile_image, cache: 'default' }}
+          />
         ) : (
           <AvatarIcon size={70} icon={{ name: 'person', color: '#A28FD0' }} />
         )}
