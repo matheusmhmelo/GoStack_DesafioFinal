@@ -47,7 +47,10 @@ export default function Deliveryman() {
   }
 
   async function handleSubmit(data) {
-    const formData = { ...data, avatar_id: avatarId || avatar.id };
+    const formData = {
+      ...data,
+      avatar_id: avatarId || (avatar ? avatar.id : null),
+    };
     try {
       if (!deliveryman_id) {
         await api.post('deliveryman', formData);
