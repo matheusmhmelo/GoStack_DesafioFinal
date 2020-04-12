@@ -35,7 +35,7 @@ export default function Recipient() {
     async function loadRecipient() {
       if (recipient_id) {
         const response = await api.get(`recipient/${recipient_id}`);
-        setRecipient(response.data[0]);
+        setRecipient(response.data);
       }
     }
 
