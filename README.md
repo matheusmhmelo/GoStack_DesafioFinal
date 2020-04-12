@@ -5,6 +5,8 @@ Matheus H. R. de Melo - ma_hrm@hotmail.com
 
 Aplicação final do bootcamp GoStack - FastFeet
 
+Última atualização - 12/04/2020
+
 ## Instalação e execução - API
 
 1. Faça um clone desse repositório;
