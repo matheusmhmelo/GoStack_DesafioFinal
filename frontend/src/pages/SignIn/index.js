@@ -41,7 +41,7 @@ export default function SignIn() {
         />
 
         <button type="submit">
-          {loading ? 'Carregando...' : 'Entrar no stema'}
+          {loading ? 'Carregando...' : 'Entrar no Sistema'}
         </button>
       </Form>
     </>
